@@ -1,0 +1,8 @@
+-- conect reddit 
+cần secret_key, client_id, user agent
+
+-- extraction
+- thông qua reddit connect instance, cần subreddit(topic của reddit), time_filter(giới hạn ngày post cần extract), limit (giới hạn lượng post cần extract)
+- docker exec -it container_name /bin/bash
+
+

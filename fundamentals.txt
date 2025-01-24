@@ -16,7 +16,7 @@ Crawler giúp tạo table từ một csv file, cần taọ IAM role có prefix A
 --Anthena giúp query dữ liệu từ table được tạo ở glue
 select * from datacatalog.database.tablename
 
---Amazon redshift
+--Amazon redshift (serverless)
 - Create workgroup(bao gồm nhiều resources), workgroup khá giống resource group của azure
 - Set capacity to process data workloads. Capacity is measured in Redshift processing units (RPUs). To improve query performance, increase RPU value
 - Có thể thiết lập VPC cho database
@@ -26,3 +26,4 @@ select * from datacatalog.database.tablename
 - Có thể manually load file data từ S3 hoặc local vào redshift, lúc này dữ liệu kiểu string có "" sẽ biến mất
 - Sử dụng chart để show statistics
 - Có thể connect với tablue looker theo endpoint, có thể connect thông qua redshift hoặc athena  hoặc data catalog
+- Có thể sử dụng cloudFormation để schedule job cho aws glue

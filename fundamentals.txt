@@ -11,13 +11,17 @@ cần secret_key, client_id, user agent
 
 --Glue
 ETL jobs
-Crawler giúp tạo table từ một csv file, cần taọ IAM role có prefix AWSGlueServiceRole, IAM role này trust aws glue và có permission để access AWS glue crawler targets
+- Transformation với glue chạy script cần cấp quyền iam (S3fullaccess)
+- Crawler giúp tạo table từ một csv file, cần taọ IAM role có prefix AWSGlueServiceRole, IAM role này trust aws glue và có permission để access AWS glue crawler targets
+- Cần cấp quyền AWSGlueServiceRole cho crawler để chạy tạo table
+- Glue job có thể access nhiều data catalog của nhiều acccount khác nhau thông qua
+glueContext.create_dynamic_frame.from_catalog
 
 --Anthena giúp query dữ liệu từ table được tạo ở glue
 select * from datacatalog.database.tablename
 
 --Amazon redshift (serverless)
-- Create workgroup(bao gồm nhiều resources), workgroup khá giống resource group của azure
+- Create workgroup(bao gồm nhiều resources), workgroup khá giống resource group của azure, hay còn gọi là cluster trong redshift
 - Set capacity to process data workloads. Capacity is measured in Redshift processing units (RPUs). To improve query performance, increase RPU value
 - Có thể thiết lập VPC cho database
 - Create namespace(collection of database objects and users)
@@ -27,3 +31,6 @@ select * from datacatalog.database.tablename
 - Sử dụng chart để show statistics
 - Có thể connect với tablue looker theo endpoint, có thể connect thông qua redshift hoặc athena  hoặc data catalog
 - Có thể sử dụng cloudFormation để schedule job cho aws glue
+- External database là trong awsdatacatalog(default của mỗi account).reddit_db
+- managed hay native database mặc định sẽ ko có gì, ta cần tạo external schema connect tới external table dưới S3
+- native database nếu tạo managed table thì sẽ có schema mặc định là public (trong native database)

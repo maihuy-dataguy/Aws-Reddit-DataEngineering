@@ -3,4 +3,6 @@ venv
 logs
 .idea
 __pycache__
+!dags/__pycache__
+*.pyc
 *.iml

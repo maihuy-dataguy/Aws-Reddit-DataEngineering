@@ -4,9 +4,9 @@ import os
 import sys
 from airflow.operators.python import PythonOperator
 
-sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from pipelines.aws_s3_pipeline import upload_s3_pipeline
 from pipelines.reddit_pipeline import reddit_pipeline
-
 
 default_args = {
     'owner': 'Mai Huy',
@@ -34,3 +34,11 @@ extract = PythonOperator(
     },
     dag=dag
 )
+
+# upload_to_S3
+upload_S3 = PythonOperator(
+    task_id='s3_upload',
+    python_callable=upload_s3_pipeline,
+    dag=dag
+)
+extract >> upload_S3

@@ -11,10 +11,14 @@ def reddit_pipeline(filename: str, subreddit: str, time_filter='day', limit=None
     # extraction
     posts = extract_posts(instance, subreddit, time_filter, limit)
     post_df = pd.DataFrame(posts)
+
     # transformation
     transformed_df = transform_data(post_df)
+
     # loading to csv
-    load_data_to_csv(transformed_df, f'{OUTPUT_PATH}/{filename}.csv')
-    print(f'Loading {filename}.csv to {OUTPUT_PATH} directory successfully')
+    file_path = f'{OUTPUT_PATH}/{filename}.csv'
+    load_data_to_csv(transformed_df, file_path)
+    return file_path
+
 
 # reddit_pipeline("reddit", "dataengineering", "day", 100)

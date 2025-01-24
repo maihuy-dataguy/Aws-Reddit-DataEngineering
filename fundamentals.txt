@@ -5,4 +5,6 @@ cần secret_key, client_id, user agent
 - thông qua reddit connect instance, cần subreddit(topic của reddit), time_filter(giới hạn ngày post cần extract), limit (giới hạn lượng post cần extract)
 - docker exec -it container_name /bin/bash
 
-
+-- connect to aws
+- cần access_key_id, secret_access_key, session_token, region, bucket name
+- xcom_pull lấy trả trị trả về từ operator khác (dựa trên task_id và key)

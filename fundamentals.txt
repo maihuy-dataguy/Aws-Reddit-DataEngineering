@@ -16,6 +16,9 @@ ETL jobs
 - Cần cấp quyền AWSGlueServiceRole cho crawler để chạy tạo table
 - Glue job có thể access nhiều data catalog của nhiều acccount khác nhau thông qua
 glueContext.create_dynamic_frame.from_catalog
+- data catalog là kho lưu trữ metadata (metadata table definitions, metadata defines ETL jobs)
+- crawler: programs that connect to data sources, infer data schema, create metadata table definition in data catalog
+- dynamicframe : a distributed table that supports nested structures and arrays. Mỗi record theo dạng semi-structured chứa cả data và schema mô tả data.
 
 --Anthena giúp query dữ liệu từ table được tạo ở glue
 select * from datacatalog.database.tablename
@@ -25,7 +28,7 @@ select * from datacatalog.database.tablename
 - Set capacity to process data workloads. Capacity is measured in Redshift processing units (RPUs). To improve query performance, increase RPU value
 - Có thể thiết lập VPC cho database
 - Create namespace(collection of database objects and users)
-- set up IAM role để redshift có thể connect to S3 bucket 
+- set up IAM role RedshiftAllCommandFullAccess để redshift có thể connect và query to S3 bucket 
 - Redshift load tất cả data catalog từ glue, gồm cả database và table
 - Có thể manually load file data từ S3 hoặc local vào redshift, lúc này dữ liệu kiểu string có "" sẽ biến mất
 - Sử dụng chart để show statistics

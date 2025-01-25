@@ -28,3 +28,45 @@ The project is designed with the following Technology Stack:
 - Reddit API credentials. Check [here](https://www.reddit.com/r/reddit.com/wiki/api/) for more information
 - Docker Installation
 - Python 3.12 (to this point)
+
+## Getting started
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/maihuy-dataguy/Aws-Reddit-DataEngineering.git
+    ```
+2. Create a virtual environment.
+    ```bash
+    virtualvenv env
+    ```
+3. Activate the virtual environment.
+     ```bash
+    source venv/bin/activate
+    ```
+4.Install the dependencies.
+     ```bash
+    pip install -r requirements.txt
+    ```
+5.Rename the configuration file and the credentials to the file
+     ```bash
+     mv config/config.conf.example config/config.conf
+    ```
+    Input these configuration in config.conf
+    ```bash
+    
+    [api_keys]
+    reddit_secret_key = [SECRET KEY HERE]
+    reddit_client_id = [CLIENT ID HERE]
+    
+    [aws]
+    aws_access_key_id = [aws access key id]
+    aws_secret_access_key= [aws secret key]
+    aws_session_token= [aws session token]
+    aws_region = [aws region]
+    aws_bucket_name = [s3 bucket name]
+    ```
+6. Starting the containers
+     ```bash
+     docker-compose up -d
+    ```
+     
+

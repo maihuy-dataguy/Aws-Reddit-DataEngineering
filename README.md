@@ -74,8 +74,8 @@ The project is designed with the following Technology Stack:
    ```bash
     open http://localhost:8080
    ```
-   or
-  ```bash
+   Or
+   ```bash
     open http://0.0.0.0:8080/
    ```
 

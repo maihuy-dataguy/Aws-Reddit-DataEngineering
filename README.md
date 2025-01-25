@@ -42,16 +42,16 @@ The project is designed with the following Technology Stack:
      ```bash
     source venv/bin/activate
     ```
-4.Install the dependencies.
+4. Install the dependencies.
     ```bash
     pip install -r requirements.txt
     ```
-5.Rename the configuration file and the credentials to the file
+5. Rename the configuration file and the credentials to the file
      ```bash
      mv config/config.conf.example config/config.conf
     ```
     
-Input these configuration in config.conf
+   Input these configuration in config.conf
 
     ```bash
     

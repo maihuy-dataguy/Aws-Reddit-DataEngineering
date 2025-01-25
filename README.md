@@ -51,7 +51,7 @@ The project is designed with the following Technology Stack:
      mv config/config.conf.example config/config.conf
     ```
     
-   Input these configuration in config.conf
+   Input these configuration in config.conf file
 
     ```bash
     

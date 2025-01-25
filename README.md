@@ -68,7 +68,7 @@ The project is designed with the following Technology Stack:
     ```
 6. Starting the containers
      ```bash
-     docker-compose up -d
+     docker-compose up -d --build
     ```
      
 

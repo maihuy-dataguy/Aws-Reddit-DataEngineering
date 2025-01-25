@@ -18,13 +18,13 @@ ETL jobs
 glueContext.create_dynamic_frame.from_catalog
 - data catalog là kho lưu trữ metadata (metadata table definitions, metadata defines ETL jobs)
 - crawler: programs that connect to data sources, infer data schema, create metadata table definition in data catalog
-- dynamicframe : a distributed table that supports nested structures and arrays. Mỗi record theo dạng semi-structured chứa cả data và schema mô tả data.
+- dynamicframe : a distributed table that supports nested structures and arrays. Mỗi record theo dạng semi-structured chứa cả data và schema mô tả data. self-described
 
 --Anthena giúp query dữ liệu từ table được tạo ở glue
 select * from datacatalog.database.tablename
 
 --Amazon redshift (serverless)
-- Create workgroup(bao gồm nhiều resources), workgroup khá giống resource group của azure, hay còn gọi là cluster trong redshift
+- Create workgroup(bao gồm nhiều resources), workgroup khá giống resource group của azure, hay còn gọi là cluster trong redshift ( a collection of compute resources)
 - Set capacity to process data workloads. Capacity is measured in Redshift processing units (RPUs). To improve query performance, increase RPU value
 - Có thể thiết lập VPC cho database
 - Create namespace(collection of database objects and users)
@@ -35,5 +35,10 @@ select * from datacatalog.database.tablename
 - Có thể connect với tablue looker theo endpoint, có thể connect thông qua redshift hoặc athena  hoặc data catalog
 - Có thể sử dụng cloudFormation để schedule job cho aws glue
 - External database là trong awsdatacatalog(default của mỗi account).reddit_db
-- managed hay native database mặc định sẽ ko có gì, ta cần tạo external schema connect tới external table dưới S3
+- managed hay native database mặc định sẽ ko có gì, ta cần tạo external schema connect tới external table dưới S3 (kiểu connect này còn gọi là redshift spectrum)
 - native database nếu tạo managed table thì sẽ có schema mặc định là public (trong native database)
+
+--Provisioned redshift
+- cluster: bao gồm nhiều compute node được dẫn dắt bởi leader node. Leader node hands external communication with applications such as bi tools, query editors
+- Compute node gồm nhiều node slices được chia nhỏ chứa tài nguyên dc phân phối từ compute node để thực thi tác vụ (node_size), khi tạo bảng có thể chỉ định 1 cột là distribution key, khi table được load, mỗi dòng được phân bổ vào các node slices dựa theo distribution key
+

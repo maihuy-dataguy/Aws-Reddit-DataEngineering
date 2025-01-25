@@ -70,5 +70,12 @@ The project is designed with the following Technology Stack:
      ```bash
      docker-compose up -d --build
     ```
-     
+7. Open Airflow UI
+   ```bash
+    open http://localhost:8080
+   ```
+   or
+  ```bash
+    open http://0.0.0.0:8080/
+   ```
 

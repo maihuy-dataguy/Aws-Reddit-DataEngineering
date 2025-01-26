@@ -43,3 +43,7 @@ CTAS để tạo và transform data từ 1 query, nếu truyền vào external_l
 --Provisioned redshift
 - cluster: bao gồm nhiều compute node được dẫn dắt bởi leader node. Leader node handles external communication with applications such as bi tools, query editors. Leader còn giao tiếp vs client application(bên request data) thông qua jdbc như dbeaver
 - Compute node bao gồm nhiều node slices được chia nhỏ chứa tài nguyên dc phân phối từ compute node để thực thi tác vụ (node_size), khi tạo bảng có thể chỉ định 1 cột là distribution key, khi table được load, mỗi dòng được phân bổ vào các node slices dựa theo distribution key
+
+--Incremental redshift 
+https://github.com/sinemozturk/INCREMENTAL-DATA-LOADING-FROM-AWS-S3-BUCKET-TO-REDSHIFT-BY-USING-AWS-GLUE-ETL-JOB
+https://stackoverflow.com/questions/67741220/daily-incremental-copying-from-amazon-s3-data-into-amazon-redshift

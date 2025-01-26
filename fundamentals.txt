@@ -22,6 +22,7 @@ glueContext.create_dynamic_frame.from_catalog
 
 --Anthena giúp query dữ liệu từ table được tạo ở glue
 select * from datacatalog.database.tablename
+CTAS để tạo và transform data từ 1 query, nếu truyền vào external_location thì sẽ lưu vào external location đó còn ko sẽ lưu mặc định ở nơi outout athena script /tables/query_id
 
 --Amazon redshift (serverless)
 - Create workgroup(bao gồm nhiều resources), workgroup khá giống resource group của azure, hay còn gọi là cluster trong redshift ( a collection of compute resources)

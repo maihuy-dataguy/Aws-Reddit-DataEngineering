@@ -39,6 +39,11 @@ CTAS để tạo và transform data từ 1 query, nếu truyền vào external_l
 - managed hay native database mặc định sẽ ko có gì, ta cần tạo external schema connect tới external table dưới S3 (kiểu connect này còn gọi là redshift spectrum)
 - native database nếu tạo managed table thì sẽ có schema mặc định là public (trong native database)
 - Lợi ích khi dùng redshift là tốc độ nhanh vì tác vụ dc xử lý song song trong các node slices
+Create external schema dev_smartcity
+from data catalog
+database smartcity
+iam_role ''
+region ''
 
 --Provisioned redshift
 - cluster: bao gồm nhiều compute node được dẫn dắt bởi leader node. Leader node handles external communication with applications such as bi tools, query editors. Leader còn giao tiếp vs client application(bên request data) thông qua jdbc như dbeaver

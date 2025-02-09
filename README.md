@@ -46,7 +46,7 @@ The project is designed with the following Technology Stack:
     ```bash
     pip install -r requirements.txt
     ```
-5. Rename the configuration file and the credentials to the file
+5. Rename the configuration file and change the credentials to the file
      ```bash
      mv config/config.conf.example config/config.conf
     ```
